@@ -1,6 +1,6 @@
 #include <iostream>
 
-
+#include "commonTools.h"
 #include "testString.h"
 
 bool TestStringSzchar(const std::string &src, const char *dst)
@@ -54,6 +54,25 @@ void TestIfStrIsPureNum()
 
 void TestIsInterger()
 {
-    std::string num("0xFf");
-    std::cout << std::stoi(num) << std::endl;
+    std::string num("-2147483648");
+    std::cout << std::stoi(num, 0, 0) << std::endl;
+    std::string num1("56");
+    std::cout << std::stoi(num1, 0, 0) << std::endl;
+    std::string num2("0xfffAfff");
+    std::cout << std::stoi(num2, 0, 0) << std::endl;
+    std::string num3(".3E+3");
+    std::cout << std::stod(num3) << std::endl;
+}
+
+void TestIsDecimalInterger()
+{
+    std::string num("-2147483648");
+    if (IsDecimalInterger(num))
+    {
+        std::cout << "is number" << std::endl;
+    }
+    else
+    {
+        std::cout << "is not number" << std::endl;
+    }
 }

@@ -9,6 +9,7 @@ int main()
     //std::cout << "hello";
     
 
+    TestIsDecimalInterger();
     TestIsInterger();
 	
 }

@@ -11,3 +11,4 @@ void TestDeleteFrontAndRearSpace();
 
 void TestIfStrIsPureNum();
 void TestIsInterger();
+void TestIsDecimalInterger();

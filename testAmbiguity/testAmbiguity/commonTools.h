@@ -37,3 +37,5 @@ struct Location
     double y;
 };
 
+bool IsDecimalInterger(const std::string &str);
+
