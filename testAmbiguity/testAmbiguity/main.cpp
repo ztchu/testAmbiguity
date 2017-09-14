@@ -8,6 +8,7 @@ int main()
 {
     //std::cout << "hello";
     
-    TestDeleteFrontAndRearSpace();
+
+    TestIsInterger();
 	
 }

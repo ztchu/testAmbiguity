@@ -20,3 +20,19 @@ void TestTemplateVector()
 	PrintVector(vecInt);
 	PrintVector(vecChar);
 }
+
+bool IsInterger(const std::string &str)
+{
+    for (auto i = 0; i < str.length(); ++i)
+    {
+        if (str[i] >= '0' && str[i] <= '9')
+        {
+            continue;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return true;
+}

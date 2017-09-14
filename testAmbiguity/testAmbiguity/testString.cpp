@@ -43,3 +43,17 @@ void TestDeleteFrontAndRearSpace()
     DeleteFrontAndRearSpace(str);
     std::cout << str;// << std::endl;
 }
+
+void TestIfStrIsPureNum()
+{
+    std::string num(".3E+3");
+    std::cout << std::stod(num) << std::endl;
+    std::string num1("0.336ad");
+    std::cout << std::stod(num1) << std::endl;
+}
+
+void TestIsInterger()
+{
+    std::string num("0xFf");
+    std::cout << std::stoi(num) << std::endl;
+}

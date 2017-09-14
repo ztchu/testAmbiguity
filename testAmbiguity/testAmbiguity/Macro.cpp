@@ -21,3 +21,19 @@ void TestMacroIf()
 
 	PrintMap(strCount);
 }
+
+/*
+#define Type std::string
+void TestMacroDefine()
+{
+    int a = 3;
+    if (a == 1)
+    {
+#define TYPE std::string;
+    }
+    else if (a == 2)
+    {
+#define TYPE std::
+    }
+    
+}*/

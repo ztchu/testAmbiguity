@@ -8,3 +8,6 @@ void TestStringSzchar();
 
 void DeleteFrontAndRearSpace(std::string &str);
 void TestDeleteFrontAndRearSpace();
+
+void TestIfStrIsPureNum();
+void TestIsInterger();
