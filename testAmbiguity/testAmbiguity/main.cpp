@@ -8,8 +8,8 @@ int main()
 {
     //std::cout << "hello";
     
-
-    TestIsDecimalInterger();
-    TestIsInterger();
+    std::stod("");
+    TestTranslateAngleToPoint();
+    
 	
 }

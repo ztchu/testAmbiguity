@@ -2,8 +2,11 @@
 #include <vector>
 #include <iostream>
 #include <set>
+#include <cmath>
+#include <algorithm>
 
 #include "commonTools.h"
+#define _USE_MATH_DEFINES
 
 void TestTemplateMap()
 {
@@ -29,6 +32,10 @@ bool IsDecimalInterger(const std::string &numberToBeTested)
 {
     std::string tempNum(numberToBeTested);
     int len = tempNum.length();
+    if (len == 0)
+    {
+        return false;
+    }
     bool isNegative = false;
     if (len > 1 && tempNum[0] == '-')
     {
@@ -119,5 +126,78 @@ bool IsFloat(const std::string& numberToBeTested)
             return false;
         }
     }
+    return true;
+}
+
+const double M_PI = 3.14159265358979323846;
+//const double DBL_EPSILON = 1E-6;
+bool TranslateAngleToPoint(const double angle, Location &point1, Location &point2)
+{
+    if (angle >= 360 || angle < 0)
+    {
+        return false;
+    }
+    if (90 == angle)
+    {
+        point1 = { 0, 0 };
+        point2 = { 0, 1 };
+        return true;
+    }
+    if (270 == angle)
+    {
+        point1 = {0, 1};
+        point2 = {0, 0};
+        return true;
+    }
+
+    double tanAns = tan(angle / 180.0 * M_PI);
+    if ((angle >= 0 && angle < 90) || (angle > 270 && angle < 360))
+    {
+        point1.x = 0;
+        point2.x = 1;
+        if (tanAns > 0)
+        {
+            point1.y = 0;
+            point2.y = tanAns;
+        }
+        else if (tanAns == 0)
+        {
+            point1.y = 0;
+            point2.y = 0;
+        }
+        else
+        {
+            point2.y = 0;
+            point1.y = 0 - tanAns;
+        }
+    }
+    else if (angle > 90 && angle < 270)
+    {
+        point1.x = 1;
+        point2.x = 0;
+        if (tanAns > 0)
+        {
+            point1.y = tanAns;
+            point2.y = 0;
+        }
+        else if (tanAns == 0)
+        {
+            point1.y = 0;
+            point2.y = 0;
+        }
+        else 
+        {
+            point1.y = 0;
+            point2.y = 0 - tanAns;
+        }
+    }
+
+    double point1Max = std::max(point1.x, point1.y);
+    if (point1Max > DBL_EPSILON)
+        point1 = { point1.x / point1Max, point1.y / point1Max };
+
+    double point2Max = std::max(point2.x, point2.y);
+    if (point2Max > DBL_EPSILON)
+        point2 = { point2.x / point2Max, point2.y / point2Max };
     return true;
 }

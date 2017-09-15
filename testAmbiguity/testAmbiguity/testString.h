@@ -12,3 +12,6 @@ void TestDeleteFrontAndRearSpace();
 void TestIfStrIsPureNum();
 void TestIsInterger();
 void TestIsDecimalInterger();
+
+void TestTan();
+void TestTranslateAngleToPoint();

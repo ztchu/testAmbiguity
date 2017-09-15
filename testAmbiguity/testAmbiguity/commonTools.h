@@ -39,3 +39,4 @@ struct Location
 
 bool IsDecimalInterger(const std::string &str);
 
+bool TranslateAngleToPoint(const double angle, Location &point1, Location &point2);
