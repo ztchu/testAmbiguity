@@ -15,3 +15,5 @@ void TestIsDecimalInterger();
 
 void TestTan();
 void TestTranslateAngleToPoint();
+
+void TestStrCompare();

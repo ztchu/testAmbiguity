@@ -30,6 +30,9 @@
     <ClCompile Include="infixToPostfix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="container.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="testString.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="infixToPostfix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Container.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
