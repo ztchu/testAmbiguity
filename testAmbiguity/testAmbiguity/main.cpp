@@ -5,8 +5,10 @@
 #include "infixToPostfix.h"
 #include "Container.h"
 
+
+
 int main()
 {
     
-    TestTranslateAngleToPoint();
+    TestFindLastNotOf();
 }

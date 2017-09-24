@@ -116,3 +116,27 @@ void TestStrCompare()
         std::cout << "failed." << std::endl;
     }
 }
+
+void TestUppercaseToLowercase()
+{
+    std::string str("s");
+
+    if (str[0] >= 97 && str[0] <= 122)
+    {
+        str[0] -= 32;
+    }
+    std::cout << str << std::endl;
+
+    std::string str1("s");
+    if (str1.compare(0, str1.length(), "Z") > 0)
+    {
+        std::cout << str1 << std::endl;
+    }
+}
+
+void TestFindLastNotOf()
+{
+    std::string str("qingya");
+    str.erase(str.find_last_not_of(" ") + 1);
+    std::cout << str << std::endl;
+}

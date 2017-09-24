@@ -259,3 +259,120 @@ RelativeRect TranslateAngleToPointA(double angle)
     
     return rect;
 }
+
+void Judge(bool flag = false)
+{
+    std::cout << "okay" << std::endl;
+}
+
+
+
+std::string TranslatePathFromPptToEnbx(const std::string &path, const Size& slideSize)
+{
+    std::string ans;
+    int indexOfNumberInPath = 0;
+    std::stack<std::string> LinePrePoint;
+    static std::set<std::string> sCommandList{ "M", "L", "C", "Z", "E", "m", "l", "c", "z", "e" };
+    std::pair<std::string, std::string> startPoint;   //这两个变量仅在是封闭路径时有用
+    std::pair<std::string, std::string> endPoint;
+    double absoluteCoordX = 0;     //如果是相对路径，需要这两个变量来累计x，y移动的距离
+    double absoluteCoordY = 0;     //不能在循环内部定义
+    for (auto i = 0; i < path.length();)
+    {
+        std::string subStr;
+        int pos = path.find(' ', i);
+        if (pos != std::string::npos)
+        {
+            subStr = path.substr(i, pos - i);
+        }
+        else
+        {
+            subStr = path.substr(i, path.length() - i);
+        }
+        if (!subStr.empty())
+        {
+            std::string preCommand;
+            if (sCommandList.find(subStr) != sCommandList.end())
+            {
+                if (ans.length() > 1 && ans[ans.length() - 1] == ' ')
+                {
+                    ans = ans.substr(0, ans.length() - 1);
+                }
+                if (subStr != "Z" && subStr != "E" && subStr != "z" && subStr != "e")
+                {
+                    preCommand = subStr;
+                    if (subStr[0] >= 'a')
+                    {
+                        subStr[0] -= 32;
+                    }
+                    ans += subStr;
+                }
+                if (subStr == "L")
+                {
+                    std::string rh = LinePrePoint.top();
+                    LinePrePoint.pop();
+                    std::string lh = LinePrePoint.top();
+                    while (!LinePrePoint.empty())
+                        LinePrePoint.pop();
+
+                    ans += lh + "," + rh + " ";
+                }
+                /*else if ("Z" == subStr && "z" == subStr)
+                {
+                ans += "L" + endPoint.first + "," + endPoint.second + " " + startPoint.first + "," + startPoint.second;
+                }*/
+            }
+            else
+            {
+                ++indexOfNumberInPath;
+
+                double tempAns = std::stod(subStr);
+                std::string strAns;
+
+                if (indexOfNumberInPath % 2 == 1)
+                {
+                    if (preCommand == "M" || preCommand == "L" || preCommand == "C")
+                    {
+                        absoluteCoordX = tempAns;
+                    }
+                    else
+                    {
+                        absoluteCoordX += tempAns;
+                    }
+                    strAns = std::to_string(absoluteCoordX * slideSize.Width);
+                    ans += (strAns + ",");
+
+                    if (1 == indexOfNumberInPath)
+                    {
+                        startPoint.first = strAns;
+                    }
+                    endPoint.first = strAns;
+                }
+                else
+                {
+                    if (preCommand == "M" || preCommand == "L" || preCommand == "C")
+                    {
+                        absoluteCoordY = tempAns;
+                    }
+                    else
+                    {
+                        absoluteCoordY += tempAns;
+                    }
+                    strAns = std::to_string(absoluteCoordY * slideSize.Height);
+                    ans += (strAns + " ");
+
+                    if (2 == indexOfNumberInPath)
+                    {
+                        startPoint.second = strAns;
+                    }
+                    endPoint.second = strAns;
+                }
+                LinePrePoint.push(strAns);
+            }
+        }
+        i = (pos != std::string::npos) ? pos + 1 : path.length();
+        while (path[i] == ' ') ++i;
+    }
+    return ans.erase(ans.find_last_not_of(" ") + 1);
+}
+

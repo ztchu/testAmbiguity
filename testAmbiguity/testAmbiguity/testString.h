@@ -17,3 +17,7 @@ void TestTan();
 void TestTranslateAngleToPoint();
 
 void TestStrCompare();
+
+void TestUppercaseToLowercase();
+
+void TestFindLastNotOf();
