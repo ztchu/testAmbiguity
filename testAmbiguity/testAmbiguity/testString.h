@@ -43,3 +43,10 @@ private:
 };
 
 void TestStringClass();
+void TestTranslateAngleToPoint();
+
+void TestStrCompare();
+
+void TestUppercaseToLowercase();
+
+void TestFindLastNotOf();

@@ -86,11 +86,13 @@ void TestTan()
 
 void TestTranslateAngleToPoint()
 {
-    Location point1, point2;
-    if (TranslateAngleToPoint(180, point1, point2))
+    //Location point1, point2;
+    RelativeRect rect;
+    double angle = 359;
+    rect = TranslateAngleToPoint(angle);
     {
-        std::cout << "x:" << point1.x << "," << "y:" << point1.y << std::endl;
-        std::cout << "x:" << point2.x << "," << "y:" << point2.y << std::endl;
+        std::cout << "x:" << rect.left << "," << "y:" << rect.top << std::endl;
+        std::cout << "x:" << rect.right << "," << "y:" << rect.bottom << std::endl;
     }
 }
 
@@ -121,4 +123,49 @@ void TestStringClass()
     String str("qingya");
     const char *ptr = str;
     std::cout << ptr << std::endl;
+
+    std::cout << std::endl;
+    RelativeRect rect1;
+    rect1 = TranslateAngleToPointA(angle);
+    {
+        std::cout << "x:" << rect1.left << "," << "y:" << rect1.top << std::endl;
+        std::cout << "x:" << rect1.right << "," << "y:" << rect1.bottom << std::endl;
+    }
+}
+
+void TestStrCompare()
+{
+    std::string sr("qingya.pptx");
+    if (sr.compare(sr.length() - 5, 5, ".pptx") == 0)
+    {
+        std::cout << "okay" << std::endl;
+    }
+    else
+    {
+        std::cout << "failed." << std::endl;
+    }
+}
+
+void TestUppercaseToLowercase()
+{
+    std::string str("s");
+
+    if (str[0] >= 97 && str[0] <= 122)
+    {
+        str[0] -= 32;
+    }
+    std::cout << str << std::endl;
+
+    std::string str1("s");
+    if (str1.compare(0, str1.length(), "Z") > 0)
+    {
+        std::cout << str1 << std::endl;
+    }
+}}
+
+void TestFindLastNotOf()
+{
+    std::string str("qingya");
+    str.erase(str.find_last_not_of(" ") + 1);
+    std::cout << str << std::endl;
 }

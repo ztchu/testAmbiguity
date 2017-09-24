@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="commonTools.cpp" />
+    <ClCompile Include="container.cpp" />
     <ClCompile Include="infixToPostfix.cpp" />
     <ClCompile Include="Macro.cpp" />
     <ClCompile Include="main.cpp" />
@@ -154,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="commonTools.h" />
+    <ClInclude Include="Container.h" />
     <ClInclude Include="infixToPostfix.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="testString.h" />
