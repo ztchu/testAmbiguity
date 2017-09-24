@@ -37,6 +37,18 @@ struct Location
     double y;
 };
 
+struct RelativeRect
+{
+    double left;
+    double top;
+    double right;
+    double bottom;
+};
+
 bool IsDecimalInterger(const std::string &str);
 
-bool TranslateAngleToPoint(const double angle, Location &point1, Location &point2);
+RelativeRect TranslateAngleToPoint(const double angle);
+
+void TestIsFloat();
+
+RelativeRect TranslateAngleToPointA(double angle);

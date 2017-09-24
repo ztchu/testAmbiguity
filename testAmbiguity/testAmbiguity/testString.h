@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+//class string;
 
 bool TestStringSzchar(const std::string &src, const char *dst);
 
@@ -43,3 +44,10 @@ private:
 };
 
 void TestStringClass();
+void TestTranslateAngleToPoint();
+
+void TestStrCompare();
+
+void TestUppercaseToLowercase();
+
+void TestFindLastNotOf();

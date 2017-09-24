@@ -4,6 +4,8 @@
 #include <set>
 #include <cmath>
 #include <algorithm>
+#include <string>
+#include <stack>
 
 #include "commonTools.h"
 #define _USE_MATH_DEFINES
@@ -14,15 +16,6 @@ void TestTemplateMap()
 	std::map<char, int> matCharInt = { {'q',1}, {'z', 2} };
 	PrintMap(matStrInt);
 	PrintMap(matCharInt);	
-}
-
-void TestTemplateVector()
-{
-	std::vector<int> vecInt = { 1, 2, 4, 5 };
-	std::vector<char> vecChar = { 'a', 'b', 'c', 'd' };
-
-	PrintVector(vecInt);
-	PrintVector(vecChar);
 }
 
 const int MAX_LEN_OF_INTERGER = 10;
@@ -117,8 +110,7 @@ bool IsInterger(const std::string &numberToBeTested)
 
 bool IsFloat(const std::string& numberToBeTested)
 {
-    std::set<char> reasonableCharSet{ 'e', 'E', '+', '-', '.', '0', '1' };
-    std::set<char> uniqueCharSet;
+    static std::set<char> reasonableCharSet{ 'e', 'E', '+', '-', '.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
     for (int i = 0; i < numberToBeTested.length(); ++i)
     {
         if (reasonableCharSet.find(numberToBeTested[i]) == reasonableCharSet.end())
@@ -129,75 +121,251 @@ bool IsFloat(const std::string& numberToBeTested)
     return true;
 }
 
+void TestIsFloat()
+{
+    std::string str("indefinite");
+
+    if (IsFloat(str))
+    {
+        std::cout << "is float" << std::endl;
+    }
+    else
+    {
+        std::cout << "is not float" << std::endl;
+    }
+}
+
 const double M_PI = 3.14159265358979323846;
 //const double DBL_EPSILON = 1E-6;
-bool TranslateAngleToPoint(const double angle, Location &point1, Location &point2)
+RelativeRect TranslateAngleToPoint(const double angle)
 {
+    RelativeRect rect{0, 0, 0, 0};
     if (angle >= 360 || angle < 0)
     {
-        return false;
+        return rect;
     }
     if (90 == angle)
     {
-        point1 = { 0, 0 };
-        point2 = { 0, 1 };
-        return true;
+        //point1 = { 0, 0 };
+        //point2 = { 0, 1 };
+        /*rect.left = 0;
+        rect.top = 0;
+        rect.right = 0;
+        rect.bottom = 1;*/
+        rect = { 0, 0, 0, 1 };
     }
     if (270 == angle)
     {
-        point1 = {0, 1};
-        point2 = {0, 0};
-        return true;
+        //point1 = {0, 1};
+        //point2 = {0, 0};
+        //rect.right = 0;
+        //rect.bottom = 0;
+        rect = { 0, 1, 0, 0 };
     }
-
+    
     double tanAns = tan(angle / 180.0 * M_PI);
     if ((angle >= 0 && angle < 90) || (angle > 270 && angle < 360))
     {
-        point1.x = 0;
-        point2.x = 1;
+        rect.left = 0;
+        rect.right = 1;
         if (tanAns > 0)
         {
-            point1.y = 0;
-            point2.y = tanAns;
+            rect.top = 0;
+            rect.bottom = tanAns;
         }
         else if (tanAns == 0)
         {
-            point1.y = 0;
-            point2.y = 0;
+            rect.top = 0;
+            rect.bottom = 0;
         }
         else
         {
-            point2.y = 0;
-            point1.y = 0 - tanAns;
+            rect.top = 0 - tanAns;
+            rect.bottom = 0;
         }
     }
     else if (angle > 90 && angle < 270)
     {
-        point1.x = 1;
-        point2.x = 0;
+        rect.left = 1;
+        rect.right = 0;
+
         if (tanAns > 0)
         {
-            point1.y = tanAns;
-            point2.y = 0;
+            rect.top = tanAns;
+            rect.bottom = 0;
         }
         else if (tanAns == 0)
         {
-            point1.y = 0;
-            point2.y = 0;
+            rect.top = 0;
+            rect.bottom = 0;
         }
         else 
         {
-            point1.y = 0;
-            point2.y = 0 - tanAns;
+            rect.top = 0;
+            rect.bottom = 0 - tanAns;
         }
     }
 
-    double point1Max = std::max(point1.x, point1.y);
-    if (point1Max > DBL_EPSILON)
-        point1 = { point1.x / point1Max, point1.y / point1Max };
+    double point1Max = std::max(rect.left, rect.top);
+    if (point1Max > 1)
+    {
+        rect.left = rect.left / point1Max;
+        rect.top = rect.top / point1Max;
+    }
 
-    double point2Max = std::max(point2.x, point2.y);
-    if (point2Max > DBL_EPSILON)
-        point2 = { point2.x / point2Max, point2.y / point2Max };
-    return true;
+    double point2Max = std::max(rect.right, rect.bottom);
+    if (point2Max > 1)
+    {
+        rect.right = rect.right / point2Max;
+        rect.bottom = rect.bottom / point2Max;
+    }
+    return rect;
 }
+
+RelativeRect TranslateAngleToPointA(double angle)
+{
+    RelativeRect rect{0, 0, 0, 0};
+    if (angle >= 360 || angle < 0)
+    {
+        return rect;
+    }
+    double sinVal = sin(angle / 180.0 * M_PI);
+    double cosVal = cos(angle / 180.0 * M_PI);
+    double maxVal = std::max(sinVal > 0 ? sinVal : 0 - sinVal, cosVal > 0 ? cosVal : 0 - cosVal);
+
+    if (maxVal > DBL_EPSILON)
+    {
+        rect.right = cosVal / maxVal;
+        rect.bottom = sinVal / maxVal; //enbx中的坐标轴和ppt中的坐标轴的y轴方向刚好相反
+    }
+
+    if (rect.right < 0 - DBL_EPSILON)
+    {
+        rect.left += 1;
+        rect.right += 1;
+    }
+    if (rect.bottom < 0 - DBL_EPSILON)
+    {
+        rect.top += 1;
+        rect.bottom += 1;
+    }
+    
+    return rect;
+}
+
+void Judge(bool flag = false)
+{
+    std::cout << "okay" << std::endl;
+}
+
+
+
+std::string TranslatePathFromPptToEnbx(const std::string &path, const Size& slideSize)
+{
+    std::string ans;
+    int indexOfNumberInPath = 0;
+    std::stack<std::string> LinePrePoint;
+    static std::set<std::string> sCommandList{ "M", "L", "C", "Z", "E", "m", "l", "c", "z", "e" };
+    std::pair<std::string, std::string> startPoint;   //这两个变量仅在是封闭路径时有用
+    std::pair<std::string, std::string> endPoint;
+    double absoluteCoordX = 0;     //如果是相对路径，需要这两个变量来累计x，y移动的距离
+    double absoluteCoordY = 0;     //不能在循环内部定义
+    for (auto i = 0; i < path.length();)
+    {
+        std::string subStr;
+        int pos = path.find(' ', i);
+        if (pos != std::string::npos)
+        {
+            subStr = path.substr(i, pos - i);
+        }
+        else
+        {
+            subStr = path.substr(i, path.length() - i);
+        }
+        if (!subStr.empty())
+        {
+            std::string preCommand;
+            if (sCommandList.find(subStr) != sCommandList.end())
+            {
+                if (ans.length() > 1 && ans[ans.length() - 1] == ' ')
+                {
+                    ans = ans.substr(0, ans.length() - 1);
+                }
+                if (subStr != "Z" && subStr != "E" && subStr != "z" && subStr != "e")
+                {
+                    preCommand = subStr;
+                    if (subStr[0] >= 'a')
+                    {
+                        subStr[0] -= 32;
+                    }
+                    ans += subStr;
+                }
+                if (subStr == "L")
+                {
+                    std::string rh = LinePrePoint.top();
+                    LinePrePoint.pop();
+                    std::string lh = LinePrePoint.top();
+                    while (!LinePrePoint.empty())
+                        LinePrePoint.pop();
+
+                    ans += lh + "," + rh + " ";
+                }
+                /*else if ("Z" == subStr && "z" == subStr)
+                {
+                ans += "L" + endPoint.first + "," + endPoint.second + " " + startPoint.first + "," + startPoint.second;
+                }*/
+            }
+            else
+            {
+                ++indexOfNumberInPath;
+
+                double tempAns = std::stod(subStr);
+                std::string strAns;
+
+                if (indexOfNumberInPath % 2 == 1)
+                {
+                    if (preCommand == "M" || preCommand == "L" || preCommand == "C")
+                    {
+                        absoluteCoordX = tempAns;
+                    }
+                    else
+                    {
+                        absoluteCoordX += tempAns;
+                    }
+                    strAns = std::to_string(absoluteCoordX * slideSize.Width);
+                    ans += (strAns + ",");
+
+                    if (1 == indexOfNumberInPath)
+                    {
+                        startPoint.first = strAns;
+                    }
+                    endPoint.first = strAns;
+                }
+                else
+                {
+                    if (preCommand == "M" || preCommand == "L" || preCommand == "C")
+                    {
+                        absoluteCoordY = tempAns;
+                    }
+                    else
+                    {
+                        absoluteCoordY += tempAns;
+                    }
+                    strAns = std::to_string(absoluteCoordY * slideSize.Height);
+                    ans += (strAns + " ");
+
+                    if (2 == indexOfNumberInPath)
+                    {
+                        startPoint.second = strAns;
+                    }
+                    endPoint.second = strAns;
+                }
+                LinePrePoint.push(strAns);
+            }
+        }
+        i = (pos != std::string::npos) ? pos + 1 : path.length();
+        while (path[i] == ' ') ++i;
+    }
+    return ans.erase(ans.find_last_not_of(" ") + 1);
+}
+
