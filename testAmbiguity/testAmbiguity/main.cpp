@@ -6,10 +6,7 @@
 
 int main()
 {
-    //std::cout << "hello";
-    
-    std::stod("");
-    TestTranslateAngleToPoint();
-    
-	
+
+    TestStringClass();
+
 }

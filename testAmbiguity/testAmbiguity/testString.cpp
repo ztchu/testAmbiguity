@@ -93,3 +93,32 @@ void TestTranslateAngleToPoint()
         std::cout << "x:" << point2.x << "," << "y:" << point2.y << std::endl;
     }
 }
+
+std::string GetFamousAuthor(int index)
+{
+    switch (index % 3)
+    {
+    case 0: return "qingya";
+        break;
+    case 1: return "zijian";
+        break;
+    case 2: return "zhuiyuan";
+        break;
+    }
+}
+
+void TestGetFamousAuthor()
+{
+    int index = 2;
+    std::cout << GetFamousAuthor(index) << std::endl;
+    std::cout << GetFamousAuthor(index).c_str() << std::endl;
+    const char *ptr = GetFamousAuthor(index).c_str();   //临时对象被析构
+    std::cout << ptr << std::endl;
+}
+
+void TestStringClass()
+{
+    String str("qingya");
+    const char *ptr = str;
+    std::cout << ptr << std::endl;
+}
