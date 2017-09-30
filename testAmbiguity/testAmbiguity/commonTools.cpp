@@ -4,6 +4,8 @@
 #include <set>
 #include <cmath>
 #include <algorithm>
+#include <stack>
+#include <string>
 
 #include "commonTools.h"
 #define _USE_MATH_DEFINES

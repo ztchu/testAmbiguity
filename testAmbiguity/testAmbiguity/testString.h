@@ -21,3 +21,5 @@ void TestStrCompare();
 void TestUppercaseToLowercase();
 
 void TestFindLastNotOf();
+
+void TestStringL();

@@ -140,3 +140,9 @@ void TestFindLastNotOf()
     str.erase(str.find_last_not_of(" ") + 1);
     std::cout << str << std::endl;
 }
+
+void TestStringL()
+{
+    std::string str("qingya");
+    std::cout << L"qingya" << std::endl;
+}

@@ -37,3 +37,11 @@ void TestMacroDefine()
     }
     
 }*/
+
+#define Debug(...) std::cout << ##__VA_ARGS__ << std::endl;
+
+void TestDebug()
+{
+    Debug("qingya");
+    Debug(23);
+}
