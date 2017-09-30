@@ -11,5 +11,6 @@
 
 int main()
 {  
-    TestSingleton();
+    SingletonSchemeA::Test();
+
 }
