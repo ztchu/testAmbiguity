@@ -148,17 +148,23 @@
   <ItemGroup>
     <ClCompile Include="commonTools.cpp" />
     <ClCompile Include="container.cpp" />
+    <ClCompile Include="dump.cpp" />
+    <ClCompile Include="filePath.cpp" />
     <ClCompile Include="infixToPostfix.cpp" />
     <ClCompile Include="Macro.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="testString.cpp" />
+    <ClCompile Include="time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="commonTools.h" />
     <ClInclude Include="Container.h" />
+    <ClInclude Include="dump.h" />
+    <ClInclude Include="filePath.h" />
     <ClInclude Include="infixToPostfix.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="testString.h" />
+    <ClInclude Include="time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
