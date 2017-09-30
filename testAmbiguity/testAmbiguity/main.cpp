@@ -6,10 +6,10 @@
 #include "filePath.h"
 #include "time.h"
 #include "dump.h"
+#include "singleton.h"
 
 
 int main()
 {  
-    TestDebug();
-
+    TestSingleton();
 }
