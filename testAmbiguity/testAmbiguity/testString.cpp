@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <string>
 
 #include "commonTools.h"
 #include "testString.h"
@@ -94,8 +95,38 @@ void TestTranslateAngleToPoint()
         std::cout << "x:" << rect.left << "," << "y:" << rect.top << std::endl;
         std::cout << "x:" << rect.right << "," << "y:" << rect.bottom << std::endl;
     }
+}
+
+std::string GetFamousAuthor(int index)
+{
+    switch (index % 3)
+    {
+    case 0: return "qingya";
+        break;
+    case 1: return "zijian";
+        break;
+    case 2: return "zhuiyuan";
+        break;
+    }
+}
+
+void TestGetFamousAuthor()
+{
+    int index = 2;
+    std::cout << GetFamousAuthor(index) << std::endl;
+    std::cout << GetFamousAuthor(index).c_str() << std::endl;
+    const char *ptr = GetFamousAuthor(index).c_str();   //临时对象被析构
+    std::cout << ptr << std::endl;
+}
+
+void TestStringClass()
+{
+    String str("qingya");
+    const char *ptr = str;
+    std::cout << ptr << std::endl;
 
     std::cout << std::endl;
+    double angle = 45;
     RelativeRect rect1;
     rect1 = TranslateAngleToPointA(angle);
     {
@@ -132,7 +163,7 @@ void TestUppercaseToLowercase()
     {
         std::cout << str1 << std::endl;
     }
-}
+}}
 
 void TestFindLastNotOf()
 {

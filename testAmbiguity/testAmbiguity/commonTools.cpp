@@ -18,15 +18,6 @@ void TestTemplateMap()
 	PrintMap(matCharInt);	
 }
 
-void TestTemplateVector()
-{
-	std::vector<int> vecInt = { 1, 2, 4, 5 };
-	std::vector<char> vecChar = { 'a', 'b', 'c', 'd' };
-
-	PrintVector(vecInt);
-	PrintVector(vecChar);
-}
-
 const int MAX_LEN_OF_INTERGER = 10;
 const std::string MAX_POSITIVE_INTERGER_STR("2147483647");
 const std::string MAX_NEGATIVE_INTERGER_STR("2147483648");
