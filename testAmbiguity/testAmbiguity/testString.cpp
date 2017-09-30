@@ -163,7 +163,7 @@ void TestUppercaseToLowercase()
     {
         std::cout << str1 << std::endl;
     }
-}}
+}
 
 void TestFindLastNotOf()
 {

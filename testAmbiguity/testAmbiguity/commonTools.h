@@ -24,7 +24,14 @@ void PrintVector(const std::vector<T> &vec)
 }
 
 void TestTemplateMap();
-void TestTemplateVector();
+inline void TestTemplateVector()
+{
+    std::vector<int> vecInt = { 1, 2, 4, 5 };
+    std::vector<char> vecChar = { 'a', 'b', 'c', 'd' };
+
+    PrintVector(vecInt);
+    PrintVector(vecChar);
+}
 
 struct Size
 {
@@ -52,3 +59,5 @@ RelativeRect TranslateAngleToPoint(const double angle);
 void TestIsFloat();
 
 RelativeRect TranslateAngleToPointA(double angle);
+
+void TestIfDefine();
