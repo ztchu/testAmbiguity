@@ -163,7 +163,7 @@ void TestUppercaseToLowercase()
     {
         std::cout << str1 << std::endl;
     }
-}}
+}
 
 void TestFindLastNotOf()
 {
@@ -176,4 +176,20 @@ void TestStringL()
 {
     std::string str("qingya");
     std::cout << L"qingya" << std::endl;
+}
+
+enum class Qing {qing, zi};
+
+void TestEnumClass()
+{
+    Qing var = Qing::qing;
+    std::cout << static_cast<int>(var) << std::endl;
+    std::cout << static_cast<int>(Qing::zi) << std::endl;
+}
+
+void TestCharInitString()
+{
+    char str[] = { "qingya" };
+    std::string qing(str, 4);
+    std::cout << qing << std::endl;
 }

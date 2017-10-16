@@ -1,9 +1,8 @@
+#include "container.h"
+
 #include <map>
 #include <iostream>
 
-
-
-#include "container.h"
 
 void TestMapContaioner()
 {
@@ -21,3 +20,36 @@ void TestPair()
     pa.first;
 }
 
+int StaticStruct::num = 3;
+void TestStaticStruct()
+{     
+    std::cout << StaticStruct::num << std::endl;
+}
+
+void TestUnion()
+{
+    union
+    {
+        int *_int = nullptr;
+        char *_char;
+        double *_double;
+    };
+}
+
+void TestDeleteFunction()
+{
+    TestDelete a;
+    //TestDelete b(a);
+}
+
+struct Qing
+{
+    int a;
+    int b;
+};
+
+void TestStruct()
+{
+    Qing *ptr = new Qing{ 1, 2 };
+    std::cout << ptr->a << std::endl;
+}

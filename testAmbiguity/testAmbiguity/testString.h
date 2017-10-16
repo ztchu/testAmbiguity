@@ -53,3 +53,7 @@ void TestUppercaseToLowercase();
 void TestFindLastNotOf();
 
 void TestStringL();
+
+void TestEnumClass();
+
+void TestCharInitString();

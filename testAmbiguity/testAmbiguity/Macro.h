@@ -5,3 +5,5 @@
 void TestMacroIf();
 
 void TestDebug();
+
+void TestReplace();

@@ -38,10 +38,21 @@ void TestMacroDefine()
     
 }*/
 
-#define Debug(...) std::cout << ##__VA_ARGS__ << std::endl;
+#define Debug(var, ...) std::cout << var << ## __VA_ARGS__ << std::endl;
 
 void TestDebug()
 {
-    Debug("qingya");
-    Debug(23);
+    Debug("zijian", "qingya");
+    //Debug("qingya");
 }
+
+#define XNAME(n) x##n
+
+void TestReplace()
+{
+    int XNAME(3);
+    XNAME(3) = 4;
+    std::cout << XNAME(3) << std::endl;
+}
+
+
