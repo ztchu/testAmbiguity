@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="designPattern">
+      <UniqueIdentifier>{952aa74b-f929-454e-ad9e-d47929ef5884}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="designPattern\include">
+      <UniqueIdentifier>{ac50dfbd-bd01-4cf5-a7b3-4a925550c005}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="designPattern\src">
+      <UniqueIdentifier>{26e0f8ac-b92f-4c60-b38e-c0ecd0e6665f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,6 +51,9 @@
     <ClCompile Include="dump.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="singleton.cpp">
+      <Filter>designPattern\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="testString.h">
@@ -67,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="dump.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>designPattern\include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

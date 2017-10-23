@@ -369,6 +369,25 @@ std::string TranslatePathFromPptToEnbx(const std::string &path, const Size& slid
     return ans.erase(ans.find_last_not_of(" ") + 1);
 }
 
+void TestIfDefine()
+{
+    int *ptr = nullptr;
+    if (ptr)
+    {
+        std::cout << "ptr is not nullptr" << std::endl;
+    }
+    else
+    {
+        std::cout << "ptr is nullptr" << std::endl;
+    }
+
+    if (int *p = new int(3))
+    {
+        std::cout << "okay" << std::endl;
+        delete p;
+    }
+}
+
 std::string DeleteSpaceFromStr(const std::string &strVal)
 {
     std::string ans;
