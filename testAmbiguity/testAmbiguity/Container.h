@@ -18,3 +18,20 @@ public:
 };
 
 void TestStruct();
+
+class StaticMember
+{
+public:
+    StaticMember(int val):_val(val)
+    {
+
+    }
+
+    static void InitStaticMember(int num)
+    {
+        _sNum = num;
+    }
+private:
+    static int _sNum;
+    int _val;
+};

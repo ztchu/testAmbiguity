@@ -9,19 +9,6 @@
 #include "infixToPostfix.h"
 
 
-std::string DeleteSpaceFromStr(const std::string &strVal)
-{
-    std::string ans;
-    for (auto i = 0; i < strVal.length(); ++i)
-    {
-        if (strVal[i] != ' ')
-        {
-            ans.push_back(strVal[i]);
-        }
-    }
-    return ans;
-}
-
 std::stack<std::string> TranslateInfixToPostfix(const Size&  elementSize, const Location& elementLocation, const Size& slideSize, const std::string &str)
 {
     std::stack<std::string> operatorStk;

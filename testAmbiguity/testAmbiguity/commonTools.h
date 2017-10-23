@@ -52,3 +52,5 @@ RelativeRect TranslateAngleToPoint(const double angle);
 void TestIsFloat();
 
 RelativeRect TranslateAngleToPointA(double angle);
+
+std::string DeleteSpaceFromStr(const std::string &strVal);

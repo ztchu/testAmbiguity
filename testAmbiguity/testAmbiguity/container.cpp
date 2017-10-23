@@ -53,3 +53,11 @@ void TestStruct()
     Qing *ptr = new Qing{ 1, 2 };
     std::cout << ptr->a << std::endl;
 }
+
+int StaticMember::_sNum = 0;
+void TestStaticMember()
+{
+    StaticMember mem(3);
+    StaticMember::InitStaticMember(5);
+
+}

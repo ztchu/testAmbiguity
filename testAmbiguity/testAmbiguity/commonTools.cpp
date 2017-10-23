@@ -369,3 +369,16 @@ std::string TranslatePathFromPptToEnbx(const std::string &path, const Size& slid
     return ans.erase(ans.find_last_not_of(" ") + 1);
 }
 
+std::string DeleteSpaceFromStr(const std::string &strVal)
+{
+    std::string ans;
+    for (auto i = 0; i < strVal.length(); ++i)
+    {
+        if (strVal[i] != ' ')
+        {
+            ans.push_back(strVal[i]);
+        }
+    }
+    return ans;
+}
+

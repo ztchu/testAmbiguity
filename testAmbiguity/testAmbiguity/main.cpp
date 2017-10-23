@@ -10,6 +10,6 @@
 
 int main()
 {  
-    TestStruct();
-
+    TestOfstreamFile();
+    TestIfstreamFile();
 }
