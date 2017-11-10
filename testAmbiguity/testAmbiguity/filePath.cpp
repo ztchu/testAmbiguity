@@ -48,7 +48,6 @@ void TestOfstreamFile()
     fout << "zhuiyuan:43" << std::endl;
 }
 
-
 void TestIfstreamFile()
 {
     std::string file("a.txt");
@@ -83,3 +82,4 @@ void TestIfstreamFile()
     fout << "zijian:35" << std::endl;
     fout.close();
 }
+

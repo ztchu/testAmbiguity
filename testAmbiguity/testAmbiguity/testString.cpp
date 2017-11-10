@@ -193,3 +193,4 @@ void TestCharInitString()
     std::string qing(str, 4);
     std::cout << qing << std::endl;
 }
+

@@ -54,6 +54,9 @@
     <ClCompile Include="singleton.cpp">
       <Filter>designPattern\src</Filter>
     </ClCompile>
+    <ClCompile Include="gtestExp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="testString.h">

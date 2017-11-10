@@ -31,6 +31,22 @@ public:
     {
         _sNum = num;
     }
+
+    StaticMember& operator=(const StaticMember& other)
+    {
+        _val = other._val;
+        std::cout << "operator=(const StaticMember& other)" << std::endl;
+
+        return *this;
+    }
+
+    StaticMember& operator=(StaticMember& other)
+    {
+        _val = other._val;
+        std::cout << "operator=(StaticMember& other)" << std::endl;
+        return *this;
+    }
+
 private:
     static int _sNum;
     int _val;

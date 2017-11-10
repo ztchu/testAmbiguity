@@ -3,6 +3,6 @@
 
 void TestGetSpecialFolderPath();
 
-void TestOfstreamFile();
+
 
 void TestIfstreamFile();
