@@ -157,6 +157,7 @@
     <ClCompile Include="infixToPostfix.cpp" />
     <ClCompile Include="Macro.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="namespace.cpp" />
     <ClCompile Include="singleton.cpp" />
     <ClCompile Include="testString.cpp" />
     <ClCompile Include="time.cpp" />
@@ -166,8 +167,10 @@
     <ClInclude Include="Container.h" />
     <ClInclude Include="dump.h" />
     <ClInclude Include="filePath.h" />
+    <ClInclude Include="gtestExp.h" />
     <ClInclude Include="infixToPostfix.h" />
     <ClInclude Include="Macro.h" />
+    <ClInclude Include="namespace.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="testString.h" />
     <ClInclude Include="time.h" />

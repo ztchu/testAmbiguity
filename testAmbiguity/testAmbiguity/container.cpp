@@ -60,4 +60,7 @@ void TestStaticMember()
     StaticMember mem(3);
     StaticMember::InitStaticMember(5);
 
+    StaticMember mem1(1), mem2(2);
+    mem1 = mem2;
+    mem1 = StaticMember(2);
 }

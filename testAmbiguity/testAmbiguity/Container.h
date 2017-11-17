@@ -1,5 +1,5 @@
 #pragma once
-
+#include <iostream>
 
 void TestMapContaioner();
 
@@ -51,3 +51,5 @@ private:
     static int _sNum;
     int _val;
 };
+
+void TestStaticMember();
