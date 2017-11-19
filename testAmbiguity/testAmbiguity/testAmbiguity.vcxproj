@@ -149,6 +149,7 @@
     <ClCompile Include="commonTools.cpp" />
     <ClCompile Include="container.cpp" />
     <ClCompile Include="dump.cpp" />
+    <ClCompile Include="Enum.cpp" />
     <ClCompile Include="filePath.cpp" />
     <ClCompile Include="infixToPostfix.cpp" />
     <ClCompile Include="Macro.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="commonTools.h" />
     <ClInclude Include="Container.h" />
     <ClInclude Include="dump.h" />
+    <ClInclude Include="Enum.h" />
     <ClInclude Include="filePath.h" />
     <ClInclude Include="infixToPostfix.h" />
     <ClInclude Include="Macro.h" />

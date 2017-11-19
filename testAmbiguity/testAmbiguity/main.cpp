@@ -6,10 +6,10 @@
 #include "filePath.h"
 #include "time.h"
 #include "dump.h"
+#include "Enum.h"
 
 
 int main()
 {  
-    TestOfstreamFile();
-    TestIfstreamFile();
+    Enum::TestEnum();
 }
