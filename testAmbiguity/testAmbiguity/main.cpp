@@ -6,10 +6,14 @@
 #include "filePath.h"
 #include "time.h"
 #include "dump.h"
-#include "Enum.h"
+#include "gtestExp.h"
+#include "namespace.h"
 
 
-int main()
+
+
+
+int main(int argc, char *argv[])
 {  
-    Enum::TestEnum();
+    TestNamespace();
 }

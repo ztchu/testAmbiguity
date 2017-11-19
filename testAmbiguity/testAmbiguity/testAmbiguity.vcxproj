@@ -89,10 +89,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>E:\selfStudy\TestAmbiguity\testAmbiguity\testAmbiguity\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>"E:\selfStudy\TestAmbiguity\testAmbiguity\testAmbiguity\lib\gtestd.lib";%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -151,9 +154,11 @@
     <ClCompile Include="dump.cpp" />
     <ClCompile Include="Enum.cpp" />
     <ClCompile Include="filePath.cpp" />
+    <ClCompile Include="gtestExp.cpp" />
     <ClCompile Include="infixToPostfix.cpp" />
     <ClCompile Include="Macro.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="namespace.cpp" />
     <ClCompile Include="singleton.cpp" />
     <ClCompile Include="testString.cpp" />
     <ClCompile Include="time.cpp" />
@@ -164,8 +169,10 @@
     <ClInclude Include="dump.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="filePath.h" />
+    <ClInclude Include="gtestExp.h" />
     <ClInclude Include="infixToPostfix.h" />
     <ClInclude Include="Macro.h" />
+    <ClInclude Include="namespace.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="testString.h" />
     <ClInclude Include="time.h" />

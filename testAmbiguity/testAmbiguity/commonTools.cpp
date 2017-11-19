@@ -8,7 +8,7 @@
 #include <string>
 
 #include "commonTools.h"
-#define _USE_MATH_DEFINES
+//#define _USE_MATH_DEFINES
 
 void TestTemplateMap()
 {

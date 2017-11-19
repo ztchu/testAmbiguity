@@ -54,6 +54,12 @@
     <ClCompile Include="singleton.cpp">
       <Filter>designPattern\src</Filter>
     </ClCompile>
+    <ClCompile Include="gtestExp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="namespace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Enum.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -85,6 +91,12 @@
     </ClInclude>
     <ClInclude Include="singleton.h">
       <Filter>designPattern\include</Filter>
+    </ClInclude>
+    <ClInclude Include="namespace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gtestExp.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Enum.h">
       <Filter>Header Files</Filter>
