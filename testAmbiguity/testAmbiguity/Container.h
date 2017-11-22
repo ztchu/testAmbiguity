@@ -53,3 +53,5 @@ private:
 };
 
 void TestStaticMember();
+
+void TestStringStream();

@@ -2,6 +2,7 @@
 
 #include <map>
 #include <iostream>
+#include <sstream>
 
 
 void TestMapContaioner()
@@ -63,4 +64,11 @@ void TestStaticMember()
     StaticMember mem1(1), mem2(2);
     mem1 = mem2;
     mem1 = StaticMember(2);
+}
+
+void TestStringStream()
+{
+    std::stringstream ss;
+    ss << "value:" << 2 << std::endl;
+    std::cout << ss.str() << std::endl;
 }
