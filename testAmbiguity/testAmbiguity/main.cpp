@@ -15,6 +15,6 @@
 
 int main(int argc, char *argv[])
 {  
-    TestStringStream();
+    TestGetGuid();
     
 }

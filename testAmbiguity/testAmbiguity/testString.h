@@ -57,3 +57,5 @@ void TestStringL();
 void TestEnumClass();
 
 void TestCharInitString();
+
+void TestGetGuid();
