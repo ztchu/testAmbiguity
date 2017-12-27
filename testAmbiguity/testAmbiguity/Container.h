@@ -89,3 +89,9 @@ void TestUnionStr();
 void TestAtuoReturn();
 
 void TestVector();
+void TestStringStream();
+
+void ReplaceAllDistinct(std::string &src, const std::string &oldValue, const std::string &newValue);
+void TestReplaceAllDistinct();
+
+auto FuncTestAuto();

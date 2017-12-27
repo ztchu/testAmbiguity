@@ -54,6 +54,7 @@ void TestStruct()
 {
     Qing *ptr = new Qing{ 1, 2 };
     std::cout << ptr->a << std::endl;
+    delete ptr;
 }
 
 int StaticMember::_sNum = 0;
@@ -112,4 +113,35 @@ void TestVector()
 {
     std::vector<int> vec;
     int ans = vec.front();
+}
+}
+
+void ReplaceAllDistinct(std::string &src, const std::string &oldValue, const std::string &newValue)
+{
+    for (auto pos = 0; pos != std::string::npos; pos += newValue.length())
+    {
+        if ((pos = src.find(oldValue, pos)) != std::string::npos)
+        {
+            src.replace(pos, oldValue.length(), newValue);
+        }
+        else
+        {
+            break;
+        }
+    }
+}
+
+void TestReplaceAllDistinct()
+{
+    std::string src("a < b; b&&c; c > d");
+    ReplaceAllDistinct(src, "<", "&lt;");
+    ReplaceAllDistinct(src, ">", "&gt;");
+    ReplaceAllDistinct(src, "&", "&amp;");
+    std::cout << src << std::endl;
+}
+
+auto FuncTestAuto()
+{
+    int a = 3;
+    return a;
 }

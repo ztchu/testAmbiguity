@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <objbase.h>
 
 #include "commonTools.h"
 #include "testString.h"
@@ -220,3 +221,36 @@ void TestReferenceStr()
     int *p = new int[3]{ 1, 2, 3 };
 }
 
+std::string GetGuid()
+{
+    GUID guid;
+#ifdef _WIN32
+    CoCreateGuid(&guid);
+#else
+    uuid_generate(reinterpret_cast<unsigned char *>(&guid));
+#endif
+
+    char buf[64] = { 0 };
+
+#ifdef __GNUC__
+    snprintf(
+#else
+    _snprintf_s(
+#endif
+        buf,
+        sizeof(buf),
+        "%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x",
+        guid.Data1, guid.Data2, guid.Data3,
+        guid.Data4[0], guid.Data4[1],
+        guid.Data4[2], guid.Data4[3],
+        guid.Data4[4], guid.Data4[5],
+        guid.Data4[6], guid.Data4[7]);
+
+    return std::string(buf);
+}
+
+void TestGetGuid()
+{
+    auto ans = GetGuid();
+    std::cout << ans << std::endl;
+}

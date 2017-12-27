@@ -138,3 +138,6 @@ decltype(auto) move(T&& param)
     return static_cast<ReturnType>(param);
 }
 
+void TestCharInitString();
+
+void TestGetGuid();
