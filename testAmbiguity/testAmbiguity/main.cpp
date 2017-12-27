@@ -8,12 +8,16 @@
 #include "dump.h"
 #include "gtestExp.h"
 #include "namespace.h"
-
-
+#include "SmartPointer.h"
+#include "regularExpression.h"
+#include "BigThree.h"
+#include "CodeChange.h"
 
 
 
 int main(int argc, char *argv[])
 {  
-    TestDeleteNullptr();
+    SetUnhandleException();
+    TestDumpDivideZero();
+    
 }

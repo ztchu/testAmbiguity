@@ -83,3 +83,37 @@ void TestIfstreamFile()
     fout.close();
 }
 
+std::string getFileName(const std::string& path)
+{
+    auto slashPos = path.rfind("/");
+    auto backSlashPos = path.rfind("\\");
+    if (backSlashPos != path.npos)
+    {
+        return path.substr(backSlashPos + 1);
+    }
+    else if (slashPos != path.npos)
+    {
+        return path.substr(slashPos + 1);
+    }
+    else
+    {
+        return path;
+    }
+}
+
+std::string GetFileNameWithoutExtension(const std::string& path)
+{
+    auto filename = getFileName(path);
+    auto pos = filename.find(".");
+    if (pos != std::string::npos)
+    {
+        return filename.substr(0, pos);
+    }
+    return std::string();
+}
+
+void TestGetFileName()
+{
+    std::string path("E:\\Total_project\\PPTX_resolution\\test\\CycloneOffice\\Code\\TestResources\\chuzhongtao\\²âÊÔÑù±¾\\mediaTest.pptx");
+    std::cout << GetFileNameWithoutExtension(path) << std::endl;
+}

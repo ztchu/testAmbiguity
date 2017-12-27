@@ -194,3 +194,29 @@ void TestCharInitString()
     std::cout << qing << std::endl;
 }
 
+void TestStringToBool()
+{
+    std::string val("qing");
+    char *ptr = "zi";
+    if ("zi")
+    {
+        std::cout << "Okay" << std::endl;
+    }
+}
+
+void TestU8(const std::string &val)
+{
+    //std::string _exp = u8"กา";
+
+    std::cout << val << std::endl;
+}
+
+void TestReferenceStr()
+{
+    /*auto instance = EString::GetInstance();
+    std::cout << instance.RepeatCount.value() << std::endl;
+    std::cout << instance.ParagraphAnimation.value() << std::endl;*/
+
+    int *p = new int[3]{ 1, 2, 3 };
+}
+

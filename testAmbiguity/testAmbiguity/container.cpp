@@ -3,6 +3,7 @@
 #include <map>
 #include <iostream>
 #include <sstream>
+#include <vector>
 
 
 void TestMapContaioner()
@@ -71,4 +72,44 @@ void TestStringStream()
     std::stringstream ss;
     ss << "value:" << 2 << std::endl;
     std::cout << ss.str() << std::endl;
+}
+
+Union_Test::Union_Test(const std::string &str)
+{
+    _index = _Union_Test_str;
+    _qing = str;
+}
+
+Union_Test::Union_Test(int val)
+{
+    _index = _Union_Test_int;
+    _val = val;
+}
+
+std::string Union_Test::GetStr() const
+{
+    return _qing;
+}
+
+void TestUnionStr()
+{
+    Union_Test str(3);
+    
+}
+
+auto AddTwoNumber(int a, int b)
+{
+    return a + b;
+}
+
+void TestAtuoReturn()
+{
+    int ans = AddTwoNumber(1, 3);
+    std::cout << ans << std::endl;
+}
+
+void TestVector()
+{
+    std::vector<int> vec;
+    int ans = vec.front();
 }
