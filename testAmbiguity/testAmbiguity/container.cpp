@@ -114,7 +114,7 @@ void TestVector()
     std::vector<int> vec;
     int ans = vec.front();
 }
-}
+
 
 void ReplaceAllDistinct(std::string &src, const std::string &oldValue, const std::string &newValue)
 {

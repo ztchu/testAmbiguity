@@ -6,4 +6,4 @@ void TestDeleteNullptr();
 
 void TestDumpDivideZero();
 
-void SetUnhandleException();
+

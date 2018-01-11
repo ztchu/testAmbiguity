@@ -141,3 +141,5 @@ decltype(auto) move(T&& param)
 void TestCharInitString();
 
 void TestGetGuid();
+
+void TestToHexString();

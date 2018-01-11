@@ -254,3 +254,17 @@ void TestGetGuid()
     auto ans = GetGuid();
     std::cout << ans << std::endl;
 }
+
+std::string ToHexString(unsigned value)
+{
+    char buf[11] = { 0 };
+    sprintf_s(buf, "0x%-8X", value);
+    return buf;
+}
+
+void TestToHexString()
+{
+    unsigned int value = 4562198;
+    auto ans = ToHexString(value);
+    std::cout << ans << std::endl;
+}

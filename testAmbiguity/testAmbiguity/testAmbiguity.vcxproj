@@ -184,6 +184,7 @@
     <ClInclude Include="include\cpp11\stl_array.h" />
     <ClInclude Include="infixToPostfix.h" />
     <ClInclude Include="Macro.h" />
+    <ClInclude Include="minidump.h" />
     <ClInclude Include="namespace.h" />
     <ClInclude Include="regularExpression.h" />
     <ClInclude Include="singleton.h" />

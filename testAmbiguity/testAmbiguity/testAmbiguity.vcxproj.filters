@@ -131,5 +131,8 @@
     <ClInclude Include="CodeChange.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="minidump.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

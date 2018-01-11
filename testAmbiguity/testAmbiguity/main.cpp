@@ -12,12 +12,12 @@
 #include "regularExpression.h"
 #include "BigThree.h"
 #include "CodeChange.h"
+#include "minidump.h"
 
 
 
 int main(int argc, char *argv[])
 {  
-    SetUnhandleException();
-    TestDumpDivideZero();
+    TestToHexString();
     
 }
